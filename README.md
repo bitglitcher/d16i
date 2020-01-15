@@ -1,2 +1,2 @@
-# d16i
+# D16i
 Verilog D16i Core 
