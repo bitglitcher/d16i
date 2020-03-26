@@ -1,0 +1,59 @@
+
+
+`timescale 1 ns / 1 ps
+
+module core_test_bench();
+
+
+reg clk;
+logic [15:0] din;
+wire [15:0] dout;
+wire wr;
+reg rst;
+wire [15:0] addr;
+reg irq;
+reg [7:0] irq_id;
+//Simulated RAM
+reg [15:0] memory [0:16'hffff];
+
+core core_0
+(
+.clk(clk), 
+.din(din),
+.rst(rst),
+.irq(irq),
+.irq_id(irq_id),
+.dout(dout),
+.wr(wr),
+.addr(addr)
+);
+initial 
+begin
+	$readmemb("rom.mem", memory);
+	$monitor("ckl=%b, rst=%b, din=%b, addr=%b", clk, rst, din, addr); 
+    clk = 1'b0;
+    rst = 1'b1;
+	#10
+	clk = 1'b1;
+	rst = 1'b1;
+    #10
+	clk = 1'b0;
+	rst = 1'b1;
+    #10
+    rst = 1'b0;
+	clk = 1;
+	//repeat(256) #10 clk = ~clk;	
+	repeat(60) #10 clk = ~clk;	
+end
+
+//RAM
+always@(negedge clk)
+begin
+	if(wr)
+	begin
+		memory [addr] = dout;
+	end
+end
+assign din = memory [addr];
+
+endmodule 
