@@ -11,3 +11,7 @@ This is a personal project and not guarantee by any means. The final goal of thi
 architecture is to be able to run GCC generated code. Im working on an assembler and
 in a small SoC which should be able to synthesize on any small fpga
 without external hardware.
+
+#Want to join the project?
+
+Anyone who wants to help porting this architecture to GCC is welcome to join.
