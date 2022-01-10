@@ -1,40 +1,5 @@
 /*
 Autor: Benjamin Herrera Navaro
-Arquitectura D16i de tipo RISC con ejecucion de un ciclo pero 4 ciclos por instruccion
-
-1:53 AM 3/18/2020
-Las instrucciones NOOP, LI, ALUF y MOVF ya an sido implementadas
-
-El dia de hoy 3/18/2020 9:33AM voy a implementar las instrucciones JMP (JMPFR JMPR)
-3/20/2020
-3:20AM LSINS L implementado
-3:20AM LSINS S en proceso de implementacion
-3:53AM LSINS S implementado
-
-System calls will make an interrupt
-
-3/21/2020
-3:58AM INMI SPPP implementado
-3:58AM INMI SPDD implementado
-3:58AM INMI SYSC y INMI CR_SW faltan por implementar
-
-4:00AM Solo falta por implementar la logica para tomar IRQs
-
-
-On fetch signal LPR <= PC if IRQ_MASK and IRQ
-
-To prevent spikes in the irq_s signal when switching from decode to fetch state
-the irq signal will be passed in between a register that will activate at the negative edge
-and fetch signals
-
-The cpu allows up to 2^8 interrupts, with 0 being the System Call interrupt
-
-3/23/2020 10:05AM Logica para el sistema de interrupcion implementado
-3/23/2020 10:07AM INMI IRQEN implementado
-3/23/2020 10:08AM Solo falta por implementar la instruccion INMI SYSC
-
-3/23/2020 4:54PM INMI SYSC implementado y con este casi se concluye el nucleo
-3/23/2020 4:55PM INMI CRSW es la unica instruccion que falta por implementar pero por ahora el sistema no tiene STMR
 */
 
 module core
